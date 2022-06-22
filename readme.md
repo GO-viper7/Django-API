@@ -1,5 +1,6 @@
+run the command: python manage.py runserver  <br />
 call the endpoint "http://localhost:8000/mail_details/" and is GET request <br />
-which returns a json <br /><br />
+which returns a json list <br /><br />
 For Example :  <br />
 { <br />
     "res": [ <br />
