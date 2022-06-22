@@ -1,0 +1,54 @@
+Return-Path: <010001811aa35ea4-21e3198c-7f52-444f-b821-ca52ea03fbbb-000000@amazonses.com>
+Received: from a8-176.smtp-out.amazonses.com (a8-176.smtp-out.amazonses.com [54.240.8.176])
+ by inbound-smtp.us-east-1.amazonaws.com with SMTP id e09089kigtc61dceqbcom4cc2jqkhndloic0kd01
+ for manoj@billok.email;
+ Tue, 31 May 2022 15:02:03 +0000 (UTC)
+X-SES-Spam-Verdict: PASS
+X-SES-Virus-Verdict: PASS
+Received-SPF: pass (spfCheck: domain of amazonses.com designates 54.240.8.176 as permitted sender) client-ip=54.240.8.176; envelope-from=010001811aa35ea4-21e3198c-7f52-444f-b821-ca52ea03fbbb-000000@amazonses.com; helo=a8-176.smtp-out.amazonses.com;
+Authentication-Results: amazonses.com;
+ spf=pass (spfCheck: domain of amazonses.com designates 54.240.8.176 as permitted sender) client-ip=54.240.8.176; envelope-from=010001811aa35ea4-21e3198c-7f52-444f-b821-ca52ea03fbbb-000000@amazonses.com; helo=a8-176.smtp-out.amazonses.com;
+ dkim=pass header.i=@billok.email;
+ dkim=pass header.i=@amazonses.com;
+ dmarc=none header.from=billok.email;
+X-SES-RECEIPT: AEFBQUFBQUFBQUFGeEVVUnJGYlRKVFNDZkJOOU1jN0V2RVF3Qm1OU29tTDNYWWIwUEhYaGR3S1JjWGliaVFHNHRRTlFhNXZ2T1ZEcHNTM1ZUZUVvMUsxdXcrUXNjMWxlZWJaQ1pmZGZTbzFCRk8rQjJIaGI2NGhKTW9rbDBHbURIWk5BZ2dBcWVsUkVGUzNrUG9ucFNiVndncEZIRFcvNlZrMWY2TCs3UEY0VEpTRlhZSFNNMjZpV1FSRkFsREVjMnBmbWlmSW9YZEhSc244Q1ZGclJETDJJOGVmbkIvT0QwYVVxQm52ZUU5R1k0SjN1Z2ZSU0ZnM2ZVUkQ4VkMwWnZwbGhkem5HUktFcTA1NElOcnlUT21hVlRGeVppaDJ5YTJEajBuKzFxaUROTG4rV2xQM3pQM0tvVGFLck9LOWF2eDhQLzlFaFNRa1c0ZVRiNmNsd1N5dVVjcHBBTGhqMVZ5SGgxM2RQWjJZc2RyQ0E3Tm90K1F3PT0=
+X-SES-DKIM-SIGNATURE: a=rsa-sha256; q=dns/txt; b=VUZAzX+D/1otZA25lBtMyOeqo35xkzLmdihjPq6P1Np7NNemqlEGjuZUJkgFwCpSK2EZ8Dm8xUBukf6KZvZ/W1i/OO0YmW5/F55qZAhcyZLUSwvjddYhxlhaOuh/4f+Hzzhm3TVscYo11Qj9TmDLDSqShcTUsDwFe0HLO7XKxmk=; c=relaxed/simple; s=6gbrjpgwjskckoa6a5zn6fwqkn67xbtw; d=amazonses.com; t=1654009324; v=1; bh=/sicYse8hw3OW7nxQ+fhqodKhRIQWnH5jZ9DCiWA5Fc=; h=From:To:Cc:Bcc:Subject:Date:Message-ID:MIME-Version:Content-Type:X-SES-RECEIPT;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=y2nllkfpnpn3phllie6kkkmmtsmemwtk; d=billok.email; t=1654009323;
+	h=From:To:Subject:MIME-Version:Content-Type:Message-ID:Date;
+	bh=/sicYse8hw3OW7nxQ+fhqodKhRIQWnH5jZ9DCiWA5Fc=;
+	b=Lc5Wvr5cCAO5g5YoICbYPxOnaFDpAmBcS7+DJhQKuFXwCEGgvvvyo0KDly7kJxtr
+	WRXI9wFpvK9yUcF5lWW5HL4ho26aOKp1hASZp+bNZip9e0MCfyef0sxRVpPIMDLSGUz
+	Rrx3Rck04owwhhMEgTV3ri7YC4n6WUakI64hwKNDrMUTdg2lE0fakwA/bkLa6AG6KIu
+	NTNJdMMDDoDxr7F4qiUrmILGfIea2+KIzqLmPpMMDUHIYblYyzYPgd32WImTk7we5xB
+	z59gFX/2Smb+dScVkJP1eHJ95kscxlgcPbHV9f2Vq15QlB/K+JJ86kw55VfNxApnsWr
+	t/jvhnpP/g==
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=6gbrjpgwjskckoa6a5zn6fwqkn67xbtw; d=amazonses.com; t=1654009323;
+	h=From:To:Subject:MIME-Version:Content-Type:Message-ID:Date:Feedback-ID;
+	bh=/sicYse8hw3OW7nxQ+fhqodKhRIQWnH5jZ9DCiWA5Fc=;
+	b=hqgbBKkmYxoMS6QBSWpgKnFYjWoE/iCxJTgVOCqNR30HdMI755JJXbpjOCpdG5WV
+	BUOSkhIWmgvzSWMDQxrALS01K2jahf1N2mNhm2pxg3IiyIAACOJUt+dTEv9fHr6DIJB
+	W9yABeo0kGBBNFlSADfkuvJp3kcAHr6BszbOuxW0=
+From: manoj@billok.email
+To: manoj@billok.email
+Subject: test for s3 new one
+MIME-Version: 1.0
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_253156_1446412805.1654009323176"
+Message-ID: <010001811aa35ea4-21e3198c-7f52-444f-b821-ca52ea03fbbb-000000@email.amazonses.com>
+Date: Tue, 31 May 2022 15:02:03 +0000
+Feedback-ID: 1.us-east-1.uUPmGBnCmGRX/OYtVR4bXa63ih6jo2j0E+CgaDZJ060=:AmazonSES
+X-SES-Outgoing: 2022.05.31-54.240.8.176
+
+------=_Part_253156_1446412805.1654009323176
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+test for s3 new one
+------=_Part_253156_1446412805.1654009323176
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+test for s3 new one
+------=_Part_253156_1446412805.1654009323176--

@@ -1,0 +1,141 @@
+Return-Path: <acctassign@gmail.com>
+Received: from mail-yb1-f171.google.com (mail-yb1-f171.google.com [209.85.219.171])
+ by inbound-smtp.us-east-1.amazonaws.com with SMTP id kuauu4t6g3omha9nli40lhhtvofq4048dg69t801
+ for yogesh@billok.email;
+ Sat, 04 Jun 2022 05:50:37 +0000 (UTC)
+X-SES-Spam-Verdict: PASS
+X-SES-Virus-Verdict: PASS
+Received-SPF: pass (spfCheck: domain of _spf.google.com designates 209.85.219.171 as permitted sender) client-ip=209.85.219.171; envelope-from=acctassign@gmail.com; helo=mail-yb1-f171.google.com;
+Authentication-Results: amazonses.com;
+ spf=pass (spfCheck: domain of _spf.google.com designates 209.85.219.171 as permitted sender) client-ip=209.85.219.171; envelope-from=acctassign@gmail.com; helo=mail-yb1-f171.google.com;
+ dkim=pass header.i=@gmail.com;
+ dmarc=pass header.from=gmail.com;
+X-SES-RECEIPT: AEFBQUFBQUFBQUFINlhVdmhHTXN5dGt0OUJ5aDNtaytZcmNqemhvVkRiT3ZZSEkyTDNuYWtSZ1kyQ3ZZY2pHcjVEZjdYanV4TW1rZ0xJOG84M0tuK09lWGlBUjBETUE3UGp6NytqaTNyemxlREhrSHpzbzB6YTRMVjFzTXhNTEo0TVBCb1pxbDJHZ2dmRGJscVZBYkpKc005U0hrSkJtY0NqMk9nRVBVb1hkTmJ4a1daN0lxOWJTSXZZV1BVNEFUdmlPaFRrN2RqWGVjUWxCaGluVjd6UU9GMGs1b3BSZUxJSXh0a3FjTGV5R1FIeUYvR29pZ2RIK1RiTkJKYTgyakFJZ2xqS21CNXB1QUFFRlpQMmdUS1F0K0svOTRCUGN1RTdpd3ljMU1aYUNsTVBLcG9YK0M5YlE9PQ==
+X-SES-DKIM-SIGNATURE: a=rsa-sha256; q=dns/txt; b=Gvdfx6YYaErmo0ESvunRlZDOIeXhhU4ydFePlvD2GutyDeTcV4WsF8Kia49SSITShu54+NJoeO0EMQ+X0IGQ9hwgtTBFcHD9qQzy1Zg2H/AK31s3ByOYSpI3QomVOlO7cYQ2SMefC4Z9K9cHyf/BQD6FxsVbii18zY0ldb+pHxg=; c=relaxed/simple; s=6gbrjpgwjskckoa6a5zn6fwqkn67xbtw; d=amazonses.com; t=1654321837; v=1; bh=CAy90zunGtSfZFCnbLj3IhsKJGRfenat2lzP8kHnwWg=; h=From:To:Cc:Bcc:Subject:Date:Message-ID:MIME-Version:Content-Type:X-SES-RECEIPT;
+Received: by mail-yb1-f171.google.com with SMTP id u3so7436657ybi.4
+        for <yogesh@billok.email>; Fri, 03 Jun 2022 22:50:37 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112;
+        h=mime-version:from:date:message-id:subject:to;
+        bh=JHVI699OFo3q5GjKN//7nIksArr4o9BBLurTvl6qqSg=;
+        b=D2wC6nxePTOVq43XhheKLTI+BxAA6ZdWJMN9BH78LK72XhDntqiRu6tEp8NAX/JsTk
+         m5G4MwocEzKlPqIFbCsQPx8yGGMJJUVk7yhDVpBN2CdbxpSSFOsbXD76dyq2VYFhh85R
+         l1Tpj7OSSpWQ/tAcJWbumPdPtX9lAe8Kmaiw7ryYEgu0rt2RAu/bJrfKc5wt3z4GqVbm
+         0B5VsQiaTqvB0cwBfllF5hu0KqqRQV4Hgrzc31yzYxm+6k+SeVrtv1qC2yAQ21RdVd/8
+         9OvGsoxz8vdWIsfAYQsE+tH1SvcAFtc0pB72kktcpJnC3c02Ejmn5s/nda7pkdiveRCj
+         Ha6A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=x-gm-message-state:mime-version:from:date:message-id:subject:to;
+        bh=JHVI699OFo3q5GjKN//7nIksArr4o9BBLurTvl6qqSg=;
+        b=MNiy2fY+GBxZVA5VKs47L9PruqzZ3bOq85fW5I9Htqo2fOS43XczxpPefbbas4BcvX
+         4Zxkj5shJcftknya17RSooupZGFvJ7CYUUruwrmPWz7OZ3x8QHbaGViLXa9lr5k/IT0b
+         KAiw68f6JXQRvE9qusRaW9SXbAPX1/k0hpxQ1sfsWV02E1njYK2x2cnMwyodtKlEqrD7
+         ubOUyNaGfVeF3ohKrnzuM8IF6A9kb7slf0czFRnKSOfdaHqUiyNuJHHFBZ8yTJOBjXEV
+         OJo8473o5I6bNMMLl0KPIjfFXSugheKt4AMt5K+Bi7W5EZS6Qewm5kpaVJ9XXiV/trwf
+         Tx2Q==
+X-Gm-Message-State: AOAM532GZA1PlZVKU/Cf0qfAG/vZ61v4Zfg/O6B6FyWjJyYf9x+Bf3SC
+	ir1ZnHn6+gTk6+v4ENUKulJvt28D4NRK+sJoWEQgowL5cI0=
+X-Google-Smtp-Source: ABdhPJz4Lm8zz7pSNyACDVjxLI7ZXMXZxLZbGvllKsRhUjXbrlympAdFIB/Nf7kLoZSbepJZgtS4rYlFfTi9QHUC5y8=
+X-Received: by 2002:a25:2ac9:0:b0:65d:3dca:9638 with SMTP id
+ q192-20020a252ac9000000b0065d3dca9638mr14713057ybq.196.1654321836359; Fri, 03
+ Jun 2022 22:50:36 -0700 (PDT)
+MIME-Version: 1.0
+From: "Startup Accountant...." <acctassign@gmail.com>
+Date: Sat, 4 Jun 2022 11:20:25 +0530
+Message-ID: <CACi9ZN_xQ_baEn9PgFYg5aWDtj3hVJfKTS1UR5-PP9NvmoBemg@mail.gmail.com>
+Subject: test
+To: yogesh@billok.email
+Content-Type: multipart/alternative; boundary="00000000000066857305e098d142"
+
+--00000000000066857305e098d142
+Content-Type: text/plain; charset="UTF-8"
+
+test
+
+-- 
+Mannoj Tewari
+Founder | +919987545424
+
+*Going paperless : www.booksonclouds.com <http://www.booksonclouds.com>*
+
+   <https://www.instagram.com/books_on_clouds/>
+<https://twitter.com/booksonclouds>
+<https://www.facebook.com/booksonclouds>
+<https://www.linkedin.com/in/abrainmine/>
+
+*Please don't print this e-mail unless you really need to.*
+
+*DISCLAIMER:*
+The information contained in this electronic message and in any attachments
+to this message is intended only for the person or entity to which this
+electronic message is addressed. If you are not the intended recipient, you
+are hereby notified that any distribution, copying, review, retransmission,
+dissemination or other use of this electronic transmission or the
+information contained in it is strictly prohibited. This message has been
+scanned for viruses and dangerous content by Mail Scanner, and is believed
+to be clean. The sender accepts no liability for any damage caused by any
+virus transmitted by this email.
+
+--00000000000066857305e098d142
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr"><div class=3D"gmail_default" style=3D"font-family:trebuche=
+t ms,sans-serif">test</div><div><br></div>-- <br><div dir=3D"ltr" class=3D"=
+gmail_signature" data-smartmail=3D"gmail_signature"><div dir=3D"ltr"><div d=
+ir=3D"ltr"><div dir=3D"ltr"><div dir=3D"ltr"><div dir=3D"ltr"><div dir=3D"l=
+tr"><div><font face=3D"trebuchet ms, sans-serif">Mannoj Tewari=C2=A0</font>=
+</div><div><font face=3D"trebuchet ms, sans-serif">Founder | <font color=3D=
+"#0000ff" size=3D"2">+919987545424</font></font></div><div><i style=3D"colo=
+r:rgb(0,0,0);font-family:&quot;trebuchet ms&quot;,sans-serif"><b><br></b></=
+i></div><div><i style=3D"color:rgb(0,0,0);font-family:&quot;trebuchet ms&qu=
+ot;,sans-serif"><b>Going paperless : <a href=3D"http://www.booksonclouds.co=
+m" target=3D"_blank">www.booksonclouds.com</a></b></i><br></div><div><font =
+face=3D"trebuchet ms, sans-serif" color=3D"#000000"><i><br></i></font></div=
+><div><font face=3D"trebuchet ms, sans-serif" color=3D"#000000"><i><b>=C2=
+=A0=C2=A0</b></i></font><a href=3D"https://www.instagram.com/books_on_cloud=
+s/" target=3D"_blank"><img src=3D"https://ci3.googleusercontent.com/mail-si=
+g/AIorK4ylMMmgWmjz6J6DimXkF1ND1FvwXSo7O20X99lFCEmVwA_WAtSz3CXrMJatC7TRpKr94=
+WAacZY"></a>=C2=A0 =C2=A0 =C2=A0<a href=3D"https://twitter.com/booksoncloud=
+s" target=3D"_blank"><img src=3D"https://ci3.googleusercontent.com/mail-sig=
+/AIorK4wIotSMErVFh1PXXToMNj9vdj_iUrgkMt1tYmkMj3O3mWeE3V2Kr9p8sNYF-iB8i-nN3v=
+uNwgI"></a>=C2=A0 =C2=A0=C2=A0<a href=3D"https://www.facebook.com/booksoncl=
+ouds" target=3D"_blank"><img src=3D"https://ci3.googleusercontent.com/mail-=
+sig/AIorK4wLI1sjM-ZI4Sms6IclYhmt9UCsAy5lScAF26OluL2p1Bw2DBjA_9kGGLqB-fPx3H9=
+IBAamdtM"></a>=C2=A0 =C2=A0 =C2=A0<a href=3D"https://www.linkedin.com/in/ab=
+rainmine/" target=3D"_blank"><img src=3D"https://ci3.googleusercontent.com/=
+mail-sig/AIorK4xHYI1uS53CcSiV-5iPRvKheGtoa3Aen_ItfCa3TMGbX7xSdkCjbuIoBVHTjN=
+hTVjEPO70Zox4"></a><font face=3D"trebuchet ms, sans-serif" color=3D"#000000=
+"><i><b><br></b></i></font></div><div><p style=3D"background-image:initial;=
+background-position:initial;background-repeat:initial"><b><span style=3D"fo=
+nt-size:10pt;font-family:Arial,sans-serif;color:green;background-image:init=
+ial;background-position:initial;background-repeat:initial">Please don&#39;t
+print this e-mail unless you really need to.</span></b></p>
+
+<p style=3D"text-align:justify;background-image:initial;background-position=
+:initial;background-repeat:initial"><b><span style=3D"font-size:10pt;font-f=
+amily:Arial,sans-serif;color:rgb(153,153,153);background-image:initial;back=
+ground-position:initial;background-repeat:initial">DISCLAIMER:</span></b><s=
+pan style=3D"color:rgb(153,153,153);background-image:initial;background-pos=
+ition:initial;background-repeat:initial"><br>
+The information contained in this electronic message and in any attachments=
+ to
+this message is intended only for the person or entity to which this electr=
+onic
+message is addressed. If you are not the intended recipient, you are hereby
+notified that any distribution, copying, review, retransmission, disseminat=
+ion
+or other use of this electronic transmission or the information contained i=
+n it
+is strictly prohibited. This message has been scanned for viruses and dange=
+rous
+content by Mail Scanner, and is believed to be clean. The sender accepts no
+liability for any damage caused by any virus transmitted by this email.</sp=
+an></p></div><div><font face=3D"trebuchet ms, sans-serif" color=3D"#000000"=
+><i><b><br></b></i></font></div><div><font face=3D"trebuchet ms, sans-serif=
+"><font color=3D"#0000ff"><br></font></font></div><div><font face=3D"trebuc=
+het ms, sans-serif"><font color=3D"#0000ff"><br><br></font></font></div></d=
+iv></div></div></div></div></div></div></div>
+
+--00000000000066857305e098d142--

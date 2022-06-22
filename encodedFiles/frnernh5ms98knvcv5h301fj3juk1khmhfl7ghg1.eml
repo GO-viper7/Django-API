@@ -1,0 +1,61 @@
+Return-Path: <acctassign@gmail.com>
+Received: from mail-yw1-f172.google.com (mail-yw1-f172.google.com [209.85.128.172])
+ by inbound-smtp.us-east-1.amazonaws.com with SMTP id frnernh5ms98knvcv5h301fj3juk1khmhfl7ghg1
+ for manoj@billok.email;
+ Wed, 01 Jun 2022 02:54:32 +0000 (UTC)
+X-SES-Spam-Verdict: PASS
+X-SES-Virus-Verdict: PASS
+Received-SPF: pass (spfCheck: domain of _spf.google.com designates 209.85.128.172 as permitted sender) client-ip=209.85.128.172; envelope-from=acctassign@gmail.com; helo=mail-yw1-f172.google.com;
+Authentication-Results: amazonses.com;
+ spf=pass (spfCheck: domain of _spf.google.com designates 209.85.128.172 as permitted sender) client-ip=209.85.128.172; envelope-from=acctassign@gmail.com; helo=mail-yw1-f172.google.com;
+ dkim=pass header.i=@gmail.com;
+ dmarc=pass header.from=gmail.com;
+X-SES-RECEIPT: AEFBQUFBQUFBQUFIckM3NERyalhQMlFoK09Oalo2NnJnMXJLSUtpbVlnTERjejI5VmRxYzRjYWczVFl0OHZGSmJyOExoUnQ2d052aDJoWCs3SjI0K0Y3SW13c3I4SEJYU2NPaHdDV3c4WWN2bnlKZXBublRDOU1TNDVYNXNGWjBTdFZzV3hCSjloaHNPVzAyVkZQWXNXZEVmMVdxRldZcnJ1K2lzMFN2Uld3cFRnakJQYkgwTHdqK3Q2alFIcGJuVDJ4cE5xWlNwck1FUFBtZHZ2ak16dWpCSmZlL1k5dHNLd3ZoNjVNK3lJNlkzTEJ2VTlUTUx1OGpERTVRMVUzUDVoekJuWlFKeVUyd1Nra0xYQ2FwaGJCM243UUtpclNYU3d1OVcrMmJueXk1VjQwWTI0elFXd2c9PQ==
+X-SES-DKIM-SIGNATURE: a=rsa-sha256; q=dns/txt; b=hXuP0hPZv4QC7PDxSG6Gn/3BX90VfUeeFARM+t7E+m6jNf9sJm58+3abO+NK1FN0yt6bkBqpMtUhNA7VOQ4M7F5ZFw6ph7vm8LdRJ4rGOk+NVFY2IEx0zt6O4SCle1y/u5tn0lttK3FKlTyfqx+yVekXRlSCvuRwevIiYtBcBj4=; c=relaxed/simple; s=6gbrjpgwjskckoa6a5zn6fwqkn67xbtw; d=amazonses.com; t=1654052073; v=1; bh=YcBOBZqNBdqAXdzK4yqd855cjsMa/hZZgWBWSv1RpfA=; h=From:To:Cc:Bcc:Subject:Date:Message-ID:MIME-Version:Content-Type:X-SES-RECEIPT;
+Received: by mail-yw1-f172.google.com with SMTP id 00721157ae682-300628e76f3so4244977b3.12
+        for <manoj@billok.email>; Tue, 31 May 2022 19:54:32 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112;
+        h=mime-version:from:date:message-id:subject:to;
+        bh=YcBOBZqNBdqAXdzK4yqd855cjsMa/hZZgWBWSv1RpfA=;
+        b=lwo5jY8TkksF6lDqkQUHvKjtwf+rSwhsHQS1P8C8oqekLf446cJlPOKYN7uKZhPQ0D
+         SKbE6AtFPyns6iPd7JsQ76p6FbCbNIwsDbJqloKR4jWlA0k/FOVVAHQZlA4VP9Q/MNL3
+         BuR0oPKbw+IPKk/LbYE0tU4ApFaacJWaM3slJz+kd32QiBXTz5xKjc53J7jiHcu2/677
+         YulqFz3Ups3RIFOY/g3RDtOOpWWtf45YPvNq7IHqtI1GA0br/2T42xvBkiaM5aZSYo9x
+         XO9t3y/v6qsJOm14IGpU3HOSHWLBE12g5bpKTUN+jBT2EsldeU7TaFM+arhykeR5tlF7
+         m9aA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=x-gm-message-state:mime-version:from:date:message-id:subject:to;
+        bh=YcBOBZqNBdqAXdzK4yqd855cjsMa/hZZgWBWSv1RpfA=;
+        b=zXewC2hNoSBRRpgyzL1NxPrBCGJ+JL0fqX4NNZkTy52PmNJ2UKY6tpctHzd2aDG6Yf
+         2Nb7vFadWpz9K5ynN988KTnWKbbsYa1JVVvFvKcKRGz+RQVrIqD/mQsQGrsYGK1K2XT1
+         x88DnewwgLYU1DYuUgfZvCPc/xw6+d2S1pAKZY/VIktH/wuVVOfitnP4dZ6AGsTCbWVW
+         OqJz7STG4lJV+Mc4cTQFx0FLscwccwAyxzKYeUBZ/E3OH4xvRVH5NjzKsMMX8st0Xym3
+         K84jfyFVkxyPpNzqE6MoWG+QeKUGgxXGDUNOfjbJGB2SF0Yrqd5FUL5+gPxtktiBVO2W
+         S3kQ==
+X-Gm-Message-State: AOAM532H5cCC+Y75d/nSRsQPhbBKZ21XDrhoYCJEKJrT49nItv940BYJ
+	epZIlGF/Q26NsEfeMOjWTYSp4+e7a+3AYIWTCtk33Hgk
+X-Google-Smtp-Source: ABdhPJwJ7x1EltVwUoVYCIM2FuIk0N9t6Sb63mWoJuRlC3JNdgPTRSeedvBttzhGh6CnHXppQHUxiiFBk9i/9e5X24M=
+X-Received: by 2002:a81:1ecc:0:b0:30c:792d:e087 with SMTP id
+ e195-20020a811ecc000000b0030c792de087mr11953358ywe.116.1654052072004; Tue, 31
+ May 2022 19:54:32 -0700 (PDT)
+MIME-Version: 1.0
+From: "Startup Accountant...." <acctassign@gmail.com>
+Date: Wed, 1 Jun 2022 08:23:35 +0530
+Message-ID: <CACi9ZN-v13G4dujNp9tPso17oh6pt_u-9fZVynrgGzVjFdjYew@mail.gmail.com>
+Subject: Test
+To: manoj@billok.email
+Content-Type: multipart/alternative; boundary="000000000000311e8505e05a0296"
+
+--000000000000311e8505e05a0296
+Content-Type: text/plain; charset="UTF-8"
+
+Test
+
+--000000000000311e8505e05a0296
+Content-Type: text/html; charset="UTF-8"
+
+<div dir="auto">Test</div>
+
+--000000000000311e8505e05a0296--

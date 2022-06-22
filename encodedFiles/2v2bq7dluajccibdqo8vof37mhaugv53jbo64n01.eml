@@ -1,0 +1,107 @@
+Return-Path: <hello@billok.co>
+Received: from mail-io1-f41.google.com (mail-io1-f41.google.com [209.85.166.41])
+ by inbound-smtp.us-east-1.amazonaws.com with SMTP id 2v2bq7dluajccibdqo8vof37mhaugv53jbo64n01
+ for kush@billok.email;
+ Tue, 31 May 2022 17:05:15 +0000 (UTC)
+X-SES-Spam-Verdict: PASS
+X-SES-Virus-Verdict: PASS
+Received-SPF: pass (spfCheck: domain of billok.co designates 209.85.166.41 as permitted sender) client-ip=209.85.166.41; envelope-from=hello@billok.co; helo=mail-io1-f41.google.com;
+Authentication-Results: amazonses.com;
+ spf=pass (spfCheck: domain of billok.co designates 209.85.166.41 as permitted sender) client-ip=209.85.166.41; envelope-from=hello@billok.co; helo=mail-io1-f41.google.com;
+ dkim=pass header.i=@billok-co.20210112.gappssmtp.com;
+ dmarc=pass header.from=billok.co;
+X-SES-RECEIPT: AEFBQUFBQUFBQUFFR09XdmtyRFYva0FjeVlOY0puc2pmTVlIeVlzeTQ3U2pGRTY3RVFwK2gzVW9ldGpnRWxuRW52dWNZS1NiSG14cDdGWGFEVUg3dktOOXlYZ1FaNWVjQTVlZnVZZWQ0YnVFUmpDQ0NxQWErYlBieHViNlg2WXdIQ0dxU3dzS3JCY01PSys5Y3REZnhmcGk1Q3dlT3IzZ3FxTDF6UTRtTzhwOU1idlF3VEtZdXRYYUd1eFh6SGtJSGFITnM1NjA0U3QwK1VUazFPa1d5bEQ1RE1TaXRzbysyaHJBVFBRWDZ0c05ReTFObGJ2VmtPS1h3VWxFVG9nUXo4WERKRUFYRkVUUUlCaFdCS25TZHhMeERKcDlGTTk4c3dva2RsdlBHVWQ1QlM3Mis1cm5yc1E9PQ==
+X-SES-DKIM-SIGNATURE: a=rsa-sha256; q=dns/txt; b=Xz2Xjxw6jCGQmihtH6VQUBdK6M0F2KeGVViu49ZxcDvI4HW3Y1cwYGdvVSiow6dXnnadI0mSg4FYh4CzzgpdByBkLcylk4oR2HQH7ms9KwZPl3WB/6ezNxETQU4Bw0NEaKuf6PLwHwFZeRPM8NQyux683F8I49Ga30+C6N5kZUg=; c=relaxed/simple; s=6gbrjpgwjskckoa6a5zn6fwqkn67xbtw; d=amazonses.com; t=1654016715; v=1; bh=Ki7RnNuphmjGGEuTV/rp8KRrKGBD02DIm4zngl0ctYA=; h=From:To:Cc:Bcc:Subject:Date:Message-ID:MIME-Version:Content-Type:X-SES-RECEIPT;
+Received: by mail-io1-f41.google.com with SMTP id y8so14747008iof.10
+        for <kush@billok.email>; Tue, 31 May 2022 10:05:14 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=billok-co.20210112.gappssmtp.com; s=20210112;
+        h=mime-version:from:date:message-id:subject:to;
+        bh=CPObNYQUU54ZNk/g7n2B4tx61yXx2tok0wyYzT03KDw=;
+        b=qr8S1UtaBHuf9ERHtbtYylnY+qQ8CsjIXLHKL5zLqzw4ec0YkMNWkksGVC7jJBU7M9
+         3oorEBIZqmGjIIjeq4umJBBcOpiqY8DRFJTnlRHWt+d9OBsuHFebQtMCbjLWqMCcBYvP
+         WwWDzS8nyhHfWDbfyJjpGRpMF/MYoLW7UEVLoiCAHbDpvlCUZeSJexxJAARnlSU3KqOf
+         6JPZw7+qwcTFUw7B2mIX0MdOI0TpFot/KL6XdLGLVNIZEAA9hHsfR4nuuGNSiEwyz9in
+         CVXiIIJjn3BjUytAMAKBZ2vsUEWPgEbF6014ORNTvSldZ9+faA9Ib3wd65SscqAhNc6c
+         v9cA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=x-gm-message-state:mime-version:from:date:message-id:subject:to;
+        bh=CPObNYQUU54ZNk/g7n2B4tx61yXx2tok0wyYzT03KDw=;
+        b=STb/s+ze15NX0FGIHefFYLhiLyODGf59zt87QZAgroGYfqcG7A/linwoQt/0mEQHiT
+         SiZhaWPZ2t1Oz7eSPdeWIhKRpNLPjq66jp/pVSn0qqGbtQxzkA+MJA0W6GDVeXkga5u6
+         hBV9Oz7zvlAMESg/ISh0/MMfHx9kTS67Hq7nmQ+nQP972/kDq21tVf6VAb4k4ZoAQbGj
+         k45VD7qtuqWux+M+oQrlHXLDMH9Zu6LgfyFDBpfAvfd8CnmdbubWLKYr4V4e+QmQXTqx
+         /jTn+KU8HAqd+79I0b8YnxgFlbaO2Mku1YuPcA+KHoLasQxWdwHvF0e7kw6a6Dhb87lg
+         dQNg==
+X-Gm-Message-State: AOAM532jOf4M4/Sfn/03lxw6e2/B53IWaVH48MBdLrtxRYvrUUH1cgnx
+	qvhFMTzVOi7uaxva+YnRo3picXeFQpBMnQ/DNBjDEeKb+Gh/5A==
+X-Google-Smtp-Source: ABdhPJxzMKZAsm/S3+qEB1gQ0Im7YhYB6GG9Rnz/hfxhRCkRxwEd1b2duBjly9pJ/iGKlb4BoEWbACjF4xg1/Moisfc=
+X-Received: by 2002:a05:6602:490:b0:65d:cfc5:9221 with SMTP id
+ y16-20020a056602049000b0065dcfc59221mr26501204iov.0.1654016714203; Tue, 31
+ May 2022 10:05:14 -0700 (PDT)
+MIME-Version: 1.0
+From: Mannoj Tewari <hello@billok.co>
+Date: Tue, 31 May 2022 22:34:46 +0530
+Message-ID: <CANEUi8jGMKOyHeU7yvsDgg+dnhjNuedqzGDBZ=sB_mOFx55+3A@mail.gmail.com>
+Subject: test
+To: kush@billok.email
+Content-Type: multipart/alternative; boundary="000000000000b3fb3705e051c6d7"
+
+--000000000000b3fb3705e051c6d7
+Content-Type: text/plain; charset="UTF-8"
+
+test
+
+-- 
+*Mannoj Tewari*
+*Founder,* billok.co
+*E: hello@billok.co <hello@billok.co>*
+*M: +91 7400062746*
+
+
+*one place for all your invoices..*
+
+    <https://www.instagram.com/billok.co/>
+<https://twitter.com/billokindia>     <https://www.facebook.com/billokpage>
+    <https://www.linkedin.com/company/billok>
+
+--000000000000b3fb3705e051c6d7
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr">test<br clear=3D"all"><div><br></div>-- <br><div dir=3D"lt=
+r" class=3D"gmail_signature" data-smartmail=3D"gmail_signature"><div dir=3D=
+"ltr"><i style=3D"color:rgb(34,34,34)"><font face=3D"verdana, sans-serif">M=
+annoj Tewari</font></i><div style=3D"color:rgb(34,34,34)"><font face=3D"ver=
+dana, sans-serif"><i>Founder,</i><font style=3D"font-weight:bold">=C2=A0<a =
+href=3D"http://billok.co/" style=3D"color:rgb(17,85,204)" target=3D"_blank"=
+>billok.co</a></font></font></div><div style=3D"color:rgb(34,34,34)"><b><fo=
+nt face=3D"verdana, sans-serif">E:=C2=A0<a href=3D"mailto:hello@billok.co" =
+target=3D"_blank">hello@billok.co</a></font></b></div><div style=3D"color:r=
+gb(34,34,34)"><b><font face=3D"verdana, sans-serif">M: +91 7400062746</font=
+></b></div><div style=3D"color:rgb(34,34,34)"><b><font face=3D"verdana, san=
+s-serif"><br></font></b><div><font face=3D"verdana, sans-serif"><font style=
+=3D"font-weight:bold"><img src=3D"https://drive.google.com/uc?id=3D1wAG7eWm=
+mTuhu5mzA6p8MeL0JRGMba6Dz&amp;export=3Ddownload" width=3D"96" height=3D"25"=
+></font><font size=3D"1"><b><br></b></font></font></div></div><div><b><i><f=
+ont face=3D"verdana, sans-serif" color=3D"#cccccc">one place for all your i=
+nvoices..</font></i></b></div><div style=3D"color:rgb(34,34,34)"><b><i><fon=
+t face=3D"verdana, sans-serif"><br></font></i></b></div><div style=3D"color=
+:rgb(34,34,34)"><font face=3D"trebuchet ms, sans-serif" color=3D"#000000"><=
+i><b><span></span>=C2=A0=C2=A0</b></i></font><a href=3D"https://www.instagr=
+am.com/billok.co/" target=3D"_blank"><img src=3D"https://ci3.googleusercont=
+ent.com/mail-sig/AIorK4ylMMmgWmjz6J6DimXkF1ND1FvwXSo7O20X99lFCEmVwA_WAtSz3C=
+XrMJatC7TRpKr94WAacZY">=C2=A0</a> =C2=A0 =C2=A0<a href=3D"https://twitter.c=
+om/billokindia" target=3D"_blank"><img src=3D"https://ci3.googleusercontent=
+.com/mail-sig/AIorK4wIotSMErVFh1PXXToMNj9vdj_iUrgkMt1tYmkMj3O3mWeE3V2Kr9p8s=
+NYF-iB8i-nN3vuNwgI"></a>=C2=A0 =C2=A0=C2=A0<a href=3D"https://www.facebook.=
+com/billokpage" target=3D"_blank"><img src=3D"https://ci3.googleusercontent=
+.com/mail-sig/AIorK4wLI1sjM-ZI4Sms6IclYhmt9UCsAy5lScAF26OluL2p1Bw2DBjA_9kGG=
+LqB-fPx3H9IBAamdtM"></a>=C2=A0 =C2=A0 =C2=A0<a href=3D"https://www.linkedin=
+.com/company/billok" target=3D"_blank"><img src=3D"https://ci3.googleuserco=
+ntent.com/mail-sig/AIorK4xHYI1uS53CcSiV-5iPRvKheGtoa3Aen_ItfCa3TMGbX7xSdkCj=
+buIoBVHTjNhTVjEPO70Zox4"></a><b><i><font face=3D"verdana, sans-serif"><br><=
+/font></i></b></div></div></div></div>
+
+--000000000000b3fb3705e051c6d7--

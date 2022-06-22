@@ -1,0 +1,61 @@
+Return-Path: <acctassign@gmail.com>
+Received: from mail-yb1-f174.google.com (mail-yb1-f174.google.com [209.85.219.174])
+ by inbound-smtp.us-east-1.amazonaws.com with SMTP id ionvpgg7rn0n0k3chm6c7uiksc1bubemvie0sc01
+ for kush@billok.email;
+ Wed, 01 Jun 2022 02:55:08 +0000 (UTC)
+X-SES-Spam-Verdict: PASS
+X-SES-Virus-Verdict: PASS
+Received-SPF: pass (spfCheck: domain of _spf.google.com designates 209.85.219.174 as permitted sender) client-ip=209.85.219.174; envelope-from=acctassign@gmail.com; helo=mail-yb1-f174.google.com;
+Authentication-Results: amazonses.com;
+ spf=pass (spfCheck: domain of _spf.google.com designates 209.85.219.174 as permitted sender) client-ip=209.85.219.174; envelope-from=acctassign@gmail.com; helo=mail-yb1-f174.google.com;
+ dkim=pass header.i=@gmail.com;
+ dmarc=pass header.from=gmail.com;
+X-SES-RECEIPT: AEFBQUFBQUFBQUFGc2ppaGhSclcvb3VRM3ovUkExWmtFT0lVK0IrNTUvYnpueG8yL0kxejZ4czBaSjZDYzI2c3ppajVUcUdTN1lUTHpDZmhseGlMemMvU2pSaWwzN1BKbW5qNTBiaTVjODVsclFtdEd6K0RENmVtTTFQQWNudHJINUhOU0ZTWE5rN2FnLzE1c0dYTnRDL3ltZWFDREJvU0ROUENUOE1BUGFoT2M5SnMvSXpWOFJ5cU9URDJqVlNuTUlybmVFWFpkclJINzNHbkNmd2toRGpmdWltUTFwVE4ydmNPOEoxQldqaTJIUno1V1BvNHRMbEZUVk1RWi8zbFU4ekV3MTY4aGFkU2ZDZ3R4d29halB1T1YyS1k5V3V1bzVNZE9FUEx3UDFZdWNYbkFRSE5xN1E9PQ==
+X-SES-DKIM-SIGNATURE: a=rsa-sha256; q=dns/txt; b=QXNgy+m+jNxhP845Qzps0wp3SDxnBblDJkZWSorfaDnjmRIXmfmEvzjkqBr8gLlthyg/CND5VjgOSW1EHv+uLyGFZ1bglrqf7KmT5BMoD7Ub/kdYlRGy5twV8Ty2yoOG9yZhdVVHiwsoxUowmeAE78H1M7W/hkKuXhFBE80C3Uo=; c=relaxed/simple; s=6gbrjpgwjskckoa6a5zn6fwqkn67xbtw; d=amazonses.com; t=1654052109; v=1; bh=3gyMYHPcU6keEkwEksmwWdX657uyQHtqJm+oBP2AIqI=; h=From:To:Cc:Bcc:Subject:Date:Message-ID:MIME-Version:Content-Type:X-SES-RECEIPT;
+Received: by mail-yb1-f174.google.com with SMTP id h75so652968ybg.4
+        for <kush@billok.email>; Tue, 31 May 2022 19:55:08 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112;
+        h=mime-version:from:date:message-id:subject:to;
+        bh=3gyMYHPcU6keEkwEksmwWdX657uyQHtqJm+oBP2AIqI=;
+        b=US2oFX5vk0LKdjeUCV92dzi3r1NslDpP9mPK7sm7xqlRtW8eoAmlVDGI+/NdgppTiX
+         XI3ZKyPqp5kmFLOhufKon2scTO18hRvm/oSltZL91xPBcsYLoTRHwGS4EQcnZnIz9S17
+         rVCk+F5w+6mfppRAJzz1ohJcMyFVD/gSDnO5pFDjV2cWNnY7idJws30ZZG6bazfcUreU
+         F3lKkA0HXjOT6lE9Xbf1Ad+Plm8BQIPX62AVmKyxZZovUX16t8mPb+pXW2NmuqRr6v/x
+         RPk+KvQH8g+FVSfro2pnponp+4fS3orilVRhysM1bTdTn09ZN5cckTfgorgMP1neqJhX
+         2dQg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=x-gm-message-state:mime-version:from:date:message-id:subject:to;
+        bh=3gyMYHPcU6keEkwEksmwWdX657uyQHtqJm+oBP2AIqI=;
+        b=cLvU9XOSVXi9gkMFMrhipR8purVOzTXyy5YXv1s/RdhK0h5oXWf6UxrlPrrmbXYG4K
+         LM4o6OjtOmkNJebzf97hrpCu5l0bYXEtRiPvNcz5XKhL0cP/hqdZpCPTDXxR5ZwTCNcV
+         RFRrpkSGFh/UreAYw2lBErwFtx59OvUfuZQbsOYRUlxnlif1eZkZDoOfupSAHaQpuiSz
+         tw71rTCbM9n5O2Fx2r91VkdDHhMJa21nq7xnwCZVmoq/eY38nQaYalGaSeYF7X2JUzNs
+         sENRV6ESpwIWnNIKnqQqWPcvZBxkcTn0oqsBGTvH5F+p/iCyUiAuSZ9zubtwkplDcwNG
+         cJXg==
+X-Gm-Message-State: AOAM531DlWafSt8/YX2he8Wcs/TSJlLwUhWwQAxOXLzh4d67fmuatuIJ
+	DKus+XNPPnr4cP5F23yj+S6MFSbDso9MdmeabGEX32ji
+X-Google-Smtp-Source: ABdhPJxL+lvL1gwon+wOEGEVMztIJG/dD2mq8P2i1oaO0wb8DdRdqJvQb5vuTUve2iKY4s2skENhAKCZlxkltTR7ef4=
+X-Received: by 2002:a25:6e87:0:b0:64f:af7f:8070 with SMTP id
+ j129-20020a256e87000000b0064faf7f8070mr29751474ybc.1.1654052108108; Tue, 31
+ May 2022 19:55:08 -0700 (PDT)
+MIME-Version: 1.0
+From: "Startup Accountant...." <acctassign@gmail.com>
+Date: Wed, 1 Jun 2022 08:24:12 +0530
+Message-ID: <CACi9ZN-XvrB4tPWmNxZa2VqfnJnAtuMvS1RdNV=bSaqSzGxDMQ@mail.gmail.com>
+Subject: Test
+To: kush@billok.email
+Content-Type: multipart/alternative; boundary="0000000000005806f005e05a0465"
+
+--0000000000005806f005e05a0465
+Content-Type: text/plain; charset="UTF-8"
+
+Test
+
+--0000000000005806f005e05a0465
+Content-Type: text/html; charset="UTF-8"
+
+<div dir="auto">Test</div>
+
+--0000000000005806f005e05a0465--

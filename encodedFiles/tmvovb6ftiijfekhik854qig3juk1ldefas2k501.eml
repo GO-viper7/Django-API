@@ -1,0 +1,58 @@
+Return-Path: <tinesh@setoofy.com>
+Received: from sender-of-o52.zoho.in (sender-of-o52.zoho.in [103.117.158.52])
+ by inbound-smtp.us-east-1.amazonaws.com with SMTP id tmvovb6ftiijfekhik854qig3juk1ldefas2k501
+ for manoj@billok.email;
+ Tue, 31 May 2022 15:16:41 +0000 (UTC)
+X-SES-Spam-Verdict: PASS
+X-SES-Virus-Verdict: PASS
+Received-SPF: pass (spfCheck: domain of setoofy.com designates 103.117.158.52 as permitted sender) client-ip=103.117.158.52; envelope-from=tinesh@setoofy.com; helo=sender-of-o52.zoho.in;
+Authentication-Results: amazonses.com;
+ spf=pass (spfCheck: domain of setoofy.com designates 103.117.158.52 as permitted sender) client-ip=103.117.158.52; envelope-from=tinesh@setoofy.com; helo=sender-of-o52.zoho.in;
+ dkim=pass header.i=@setoofy.com;
+ dmarc=pass header.from=setoofy.com;
+X-SES-RECEIPT: AEFBQUFBQUFBQUFGUXFBNFh1SkdXZGgrczlubEdvaS9pTWFrZHo2OENrN0YyS0VOdU1kRWMxMlpLYjYzbXJRbFljSEV5YldHdUl6eER3MGp2MDdsUklENEdrK1BkQnRPOWdLTXprdHJKY1pTN2RrVWE5aHFwUzY3VG1mcDB6ZTZVK1kvMGJzQzFqQmdwaHBvZzFBOHRCaFU5OW5sMzErMXRkWjNDeTk0d09TNTdvR3U1NS9oMlJLa3JMM25xcjRhMW40YmxUajNkNzFDTW1TOHZIajFzdEdBbCsrOUpDOHJreHNhK1dIMlJvdDVSTHF3VUYrMks2WTJiQnMwUlhLV0lrQTBmbnB2WktYblIyMjd3cGlLcjhOcDh3K1FTd3A3QXdWTG5wZUxEMTArRTNQenBmWEdsYWc9PQ==
+X-SES-DKIM-SIGNATURE: a=rsa-sha256; q=dns/txt; b=gradrZlCVB5FGSa2wZUDanNOhIPOJC5nmPvgVJYkgVkpRN0htsfAobHykNdL6QCEB2oUWehTXritiLqIuxHr6CZBQVCP2uuAJZINAlbd8GVX459ystTp3IcJiuVnS0Ijj0WU0L1rw24HKwpIae+pzexcYLOqAL8On4OoKHdkURs=; c=relaxed/simple; s=6gbrjpgwjskckoa6a5zn6fwqkn67xbtw; d=amazonses.com; t=1654010202; v=1; bh=qmkMxsdNK2RDUcrsOgM3/M5Saj9Q9K9Mh3yjtIp6ctw=; h=From:To:Cc:Bcc:Subject:Date:Message-ID:MIME-Version:Content-Type:X-SES-RECEIPT;
+ARC-Seal: i=1; a=rsa-sha256; t=1654010197; cv=none; 
+	d=zohomail.in; s=zohoarc; 
+	b=IYGLvAeBKC46TwIRrsLIIZ3enTtOoJXUIOnf+R9g/LwRNPH4yy03A4SU99qurrEhyosBzAkqWctHD/NeH7JV7+mGOPafODLYVym+HWZaHh838T9RTEV1teOnY6cRWkAWzgbIuazPVnVcm0vPd+uzWdRQF/i8nbTg3mvND2pFmAA=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.in; s=zohoarc; 
+	t=1654010197; h=Content-Type:Date:From:MIME-Version:Message-ID:Subject:To; 
+	bh=qmkMxsdNK2RDUcrsOgM3/M5Saj9Q9K9Mh3yjtIp6ctw=; 
+	b=fZ0pfr1n5DSfJXyOFtuXBV2q9n6O3M2/MN7SsGN9iJqgoc6o+S8KCJJQmf0oeEm8f3K7HKHgOr/MaS8iCJhbNUyyaEh/ut5dLhmjQ7quVWNeIV8Y0BZU7dEzS5TqVHsER/ZQtndsS/FpTQprEevmEhU3usqaavSZJrLrL0yBgCE=
+ARC-Authentication-Results: i=1; mx.zohomail.in;
+	dkim=pass  header.i=setoofy.com;
+	spf=pass  smtp.mailfrom=tinesh@setoofy.com;
+	dmarc=pass header.from=<tinesh@setoofy.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1654010197;
+	s=zmail; d=setoofy.com; i=tinesh@setoofy.com;
+	h=Date:Date:From:From:To:To:Message-Id:Message-Id:Subject:Subject:MIME-Version:Content-Type:Reply-To:Cc;
+	bh=qmkMxsdNK2RDUcrsOgM3/M5Saj9Q9K9Mh3yjtIp6ctw=;
+	b=CI/QOcRl3324vqjDAQ34rEbz+Mn3I1azy+TK7RkEmzxToZZv/B3mHCAQBz6+rf6R
+	4gXNe3VDitI9gz6YmRxMw2h2C03sJHL9p6MJhfAEXtmIW92buGfT67PwWQ62Ut1BIFC
+	oKywac290vltRtLDMIaciRrgAaMKl5xbrqJ9xlmA=
+Received: from mail.zoho.in by mx.zoho.in
+	with SMTP id 165401019585064.14205559208756; Tue, 31 May 2022 20:46:35 +0530 (IST)
+Date: Tue, 31 May 2022 20:46:35 +0530
+From: Setoofy Support <tinesh@setoofy.com>
+To: <manoj@billok.email>
+Message-Id: <1811ab0af85.1eba0a83123185.8239023872059534510@setoofy.com>
+Subject: Test bt
+MIME-Version: 1.0
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_537613_631254134.1654010195845"
+Importance: Normal
+User-Agent: Zoho Mail
+X-Mailer: Zoho Mail
+
+------=_Part_537613_631254134.1654010195845
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+
+Jdndndndjdjjdjdjkdkf
+------=_Part_537613_631254134.1654010195845
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"><html><head><meta content="text/html;charset=UTF-8" http-equiv="Content-Type"></head><body ><div style='font-size:10pt;font-family:Verdana,Arial,Helvetica,sans-serif;'><div id="message"></div><br id="br3"><br id="br3">Jdndndndjdjjdjdjkdkf<div id="signature"></div><div id="content"></div></div><br></body></html>
+------=_Part_537613_631254134.1654010195845--
+

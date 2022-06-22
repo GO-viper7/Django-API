@@ -1,0 +1,61 @@
+Return-Path: <hello@complianceok.com>
+Received: from mail-pl1-f174.google.com (mail-pl1-f174.google.com [209.85.214.174])
+ by inbound-smtp.us-east-1.amazonaws.com with SMTP id lov9sle7181pm28hvd71np8uee92vek5gchr33o1
+ for manoj@billok.email;
+ Tue, 31 May 2022 16:30:13 +0000 (UTC)
+X-SES-Spam-Verdict: PASS
+X-SES-Virus-Verdict: PASS
+Received-SPF: none (spfCheck: 209.85.214.174 is neither permitted nor denied by domain of complianceok.com) client-ip=209.85.214.174; envelope-from=hello@complianceok.com; helo=mail-pl1-f174.google.com;
+Authentication-Results: amazonses.com;
+ spf=none (spfCheck: 209.85.214.174 is neither permitted nor denied by domain of complianceok.com) client-ip=209.85.214.174; envelope-from=hello@complianceok.com; helo=mail-pl1-f174.google.com;
+ dkim=pass header.i=@complianceok-com.20210112.gappssmtp.com;
+ dmarc=none header.from=complianceok.com;
+X-SES-RECEIPT: AEFBQUFBQUFBQUFFWXlxT0llNHdLSnBaRnlsS3RtMzVZSi9XZHo5enVZMlBvMjl3LzZCWE9IeHRyenREb3JYZG9XNWZVZGsrZis0ditoNExQbndpeVlYeXoyRE1aZWpFWFZmUnQ1Vy9DdTNNNUEybnZhQ3lDTWtEekZLOTZnTWN6SFgwM25GQVhJVkl6d0lIdnRtc2E3RzJpMXBGemp3NTJ6di9Ga1kvMmE3YmlRRlkxLzV4ajdodDBMTDE4SHlvZWhtbDNMMGdFNlR1bll1SU1rN3lCVElXN3ZpYzM1RHB6RFlIc2hHR3YyTmZOTGZDTFJPY1J2eXNJNW1SbFFTblRpWDdJOVNieVNiSkdtbVZKQ1l4TmpkTEY5MERLNXFQUEExMXFPRmVoSk0wRHZsS1pNTll3dHc9PQ==
+X-SES-DKIM-SIGNATURE: a=rsa-sha256; q=dns/txt; b=Y0ml9aj8MERHmgEfdDSreL8xqAzIszHGSu8husQil78O9SEG/3I7U5LqvJsOyUaVI6/yYWsKQKSp1gBLEhGwetJyobfaLNlmxExOnc+SWQF+XtBsd4MD4Oz+e7WmNCi5qIHEAbft80R7p2M0WUbycLM4FbVMyxcazziIsfhElRs=; c=relaxed/simple; s=6gbrjpgwjskckoa6a5zn6fwqkn67xbtw; d=amazonses.com; t=1654014613; v=1; bh=HNrldAK1GGR2nk9OW91s2qlRKjkbwIdFb5lTLUaLLV0=; h=From:To:Cc:Bcc:Subject:Date:Message-ID:MIME-Version:Content-Type:X-SES-RECEIPT;
+Received: by mail-pl1-f174.google.com with SMTP id s12so906709plp.0
+        for <manoj@billok.email>; Tue, 31 May 2022 09:30:13 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=complianceok-com.20210112.gappssmtp.com; s=20210112;
+        h=mime-version:from:date:message-id:subject:to;
+        bh=HNrldAK1GGR2nk9OW91s2qlRKjkbwIdFb5lTLUaLLV0=;
+        b=M0fcIQysI9Tu5xC+oDQFNLtkQHr0dHOTSHLgFud/tegKPjaeISmygCghrJn7V4UqNM
+         +fidNoBLFVqsMqwPimGb3bn78fLvBiqjjPquOAOnk84J5GAZZajSrdGqBtCPcYYo7N7w
+         NN1UwtZ8FRRhh5cMx/pjcO52zWSIwHOKJRSQd2+KMs8c7HHI+rihG6yS9drSCSW5zgUe
+         yOOd1se6n6nrKSJk/iKMJRHUf8OFFYAEfi1x0QNudpV/ixSq/dRSb5CUaP5sEzsDlu7m
+         3THcNQLFVJPk7saBoE6oJ9RiIJZbJ96gcxCKZ+HZmAkpEuEJKV6jZwXWV8xJ2MSmLvHA
+         d9sQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=x-gm-message-state:mime-version:from:date:message-id:subject:to;
+        bh=HNrldAK1GGR2nk9OW91s2qlRKjkbwIdFb5lTLUaLLV0=;
+        b=EtmQiv8oeqc5C+Bp2kU5JFtDh8BebQVp2jl9Fww6vwPIC1zPtwax1QFZbgvE/eA3OE
+         64S8HNbsLfoPS9QqG8Q0sIuHPwCHhuYHSs5Bl1KN+ouBXzmgF07bfMXp3oR6f1lGNdyF
+         okiugOYDyRKbKthzsIgcvI0tTNoJRUFYplTxXqk0RZbL/c1EqTHRi2aUQF+UZ6RSFfBu
+         jw6awyEE4LRW6BgugOS2leiEBDDPQ60IXIzGKVABVceQCzABcOu8lDlHwV9pTP2Etb6R
+         cpturhW9ntxwkQxylk+gBoZxIm61Ed1NjFOqaglru10CJslKuEPmxWlUNARoYnCmnSc3
+         qCWg==
+X-Gm-Message-State: AOAM53244n9LnbYKtYYOx+ppoWq31BDeulSWjwAJ43UQ1txOxdmqwe3R
+	BdaYeKuOSjx/pgapMGMEUwh9UTORR0b40VcpGQ7sFPui9/w=
+X-Google-Smtp-Source: ABdhPJwIJ1On0H/G2+OS0BNuxKMFSfb7g8p44edw/2HBdrf6Gw4atxz9ndx5Sk/aJLO2pukmL6eIKQh2gkgefeZqexo=
+X-Received: by 2002:a17:903:1108:b0:156:73a7:7c1 with SMTP id
+ n8-20020a170903110800b0015673a707c1mr60923429plh.101.1654014611568; Tue, 31
+ May 2022 09:30:11 -0700 (PDT)
+MIME-Version: 1.0
+From: Compliance OK <hello@complianceok.com>
+Date: Tue, 31 May 2022 21:59:15 +0530
+Message-ID: <CAA7o62PjBLx0qOoXLHu8YeXGgCOAjGanj1KoYQKJuJ1Mn0N_KQ@mail.gmail.com>
+Subject: Test
+To: manoj@billok.email
+Content-Type: multipart/alternative; boundary="000000000000604fbe05e0514915"
+
+--000000000000604fbe05e0514915
+Content-Type: text/plain; charset="UTF-8"
+
+Test
+
+--000000000000604fbe05e0514915
+Content-Type: text/html; charset="UTF-8"
+
+<div dir="auto">Test</div>
+
+--000000000000604fbe05e0514915--
