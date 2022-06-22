@@ -1,5 +1,5 @@
 call the endpoint "http://localhost:8000/mail_details/" and is GET request <br />
-which returns a json <br />
+which returns a json <br /><br />
 For Example :  <br />
 { <br />
     "res": [ <br />
@@ -17,7 +17,7 @@ For Example :  <br />
  <br />
 Attachments are "ISO-8859-1 decoded" to strings  <br />
 So as to access attachemnts u need to "ISO-8859-1 encode" to bytes and then upload into a file <br />
-For example in pythyon:  <br />
+For example in pythyon:  <br /><br />
 with open(f'{fileName}', 'wb') as fp: <br />
     fp.write(coded.encode("ISO-8859-1")) <br />
  <br />
