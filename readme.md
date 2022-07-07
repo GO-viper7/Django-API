@@ -25,7 +25,7 @@
  ```
 **Attachments are "ISO-8859-1 decoded" to strings**  <br />
 #### So as to access attachemnts u need to "ISO-8859-1 encode" to bytes and then upload into a file <br />
-## For example in pythyon:  <br /><br />
+## For example in python:  <br /><br />
 ```python
 with open(f'{fileName}', 'wb') as fp: 
     fp.write(coded.encode("ISO-8859-1"))
