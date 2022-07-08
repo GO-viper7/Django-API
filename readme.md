@@ -3,7 +3,8 @@
  Run the command: python manage.py runserver 
  Call the endpoint http://localhost:8000/mail_details/ and is GET request 
 ```
-#### **`Returns a json list `**
+#### **`Returns a json list `** 
+```Javascript
 {   "totalRecords": ,
     "res": [ 
             "messageId": "", 
