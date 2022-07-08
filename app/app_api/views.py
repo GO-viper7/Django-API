@@ -41,21 +41,16 @@ def find_attachments(message):
 
          
 
-
-
-
-@api_view()
-def api(request):
-  mails = []
-  for file in files:
+mails = []
+for file in files:
     res = s3_client.get_object(Bucket='newbillokbucketfora2', Key= file['Key'])
     body = res['Body'].read()
     try:
         with open(f"encodedFiles/{file['Key']}.eml", 'wb') as f:
-         f.write(body)
+            f.write(body)
     except FileNotFoundError:
-      print("error")
-    
+        print("error")
+
     eml_filename = f"encodedFiles/{file['Key']}.eml"
     with open(eml_filename) as f:
         msg = Parser().parse(f)
@@ -71,8 +66,8 @@ def api(request):
             attaches.append(attach)
             
     with open(f"encodedFiles/{file['Key']}.eml", 'rb') as fp:     
-      msg = BytesParser(policy=policy.default).parse(fp)
-      mails.append({
+        msg = BytesParser(policy=policy.default).parse(fp)
+        mails.append({
         "from" : msg['from'],
         "to" :  msg['to'],
         "subject" : msg['subject'],
@@ -81,4 +76,9 @@ def api(request):
         "text" : msg.get_body(preferencelist=('plain')).get_content(),
         "attachments" : attaches
         }) 
-  return Response({"res" : mails})
+
+
+@api_view()
+def api(request):
+  print(len(mails))
+  return Response({"totalRecords": len(mails), "res" : mails})
