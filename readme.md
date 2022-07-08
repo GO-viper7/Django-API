@@ -10,6 +10,10 @@
     "res": 
          [ 
             {
+              "from": "",
+              "to": "",
+              "subject": "",
+              "data": "",
               "messageId": "", 
               "text": "", 
               "attachments": 
