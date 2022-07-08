@@ -4,14 +4,8 @@
  Call the endpoint http://localhost:8000/mail_details/ and is GET request 
 ```
 #### **`Returns a json list `**
-```Javascript
 {   "totalRecords": ,
     "res": [ 
-        { 
-           "from": "", 
-            "to": "", 
-            "subject": "", 
-            "date": "", 
             "messageId": "", 
             "text": "", 
             "attachments": [ 
