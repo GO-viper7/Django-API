@@ -3,18 +3,22 @@
  Run the command: python manage.py runserver 
  Call the endpoint http://localhost:8000/mail_details/ and is GET request 
 ```
-#### **`Returns a json list `** 
-```Javascript
-{   "totalRecords": ,
-    "res": [ 
-            "messageId": "", 
-            "text": "", 
-            "attachments": [ 
-              "fileName": "", 
-              "coded": "" 
-            ] 
-        }, 
-    ] 
+#### **`Returns a Json with res as a List of Mail Objects `** 
+```Json
+{   
+    "totalRecords": ,
+    "res": 
+         [ 
+            {
+              "messageId": "", 
+              "text": "", 
+              "attachments": 
+                   [ 
+                      "fileName": "", 
+                      "coded": "" 
+                   ] 
+            }
+        ] 
 } 
  ```
 **Attachments are "ISO-8859-1 decoded" to strings**  <br />
